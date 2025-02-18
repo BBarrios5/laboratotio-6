@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// Clase base que representa un Vehículo
+// Clase base que representa un Vehiculo
 class Vehiculo {
 protected:
     string marca;
@@ -14,12 +14,12 @@ public:
     // Constructor de la clase Vehiculo
     Vehiculo(string m, string mod, double p) : marca(m), modelo(mod), precio(p) {}
 
-    // Método virtual para mostrar la información del vehículo
+    // Metodo virtual para mostrar la informacion del vehiculo
     virtual void mostrarInfo() {
-        cout << "Vehículo: " << marca << " modelo " << modelo << ", precio: Q" << precio;
+        cout << "Vehiculo: " << marca << " modelo " << modelo << ", precio: Q" << precio;
     }
 
-    // Métodos para obtener los atributos privados
+    // Metodos para obtener los atributos privados
     string getMarca() { return marca; }
     string getModelo() { return modelo; }
     double getprecio() { return precio; }
@@ -32,9 +32,9 @@ public:
     // Constructor de Automovil, inicializa la cantidad de puertas
     Automovil(string m, string mod, double p, int puertas) : Vehiculo(m, mod, p), numPuertas(puertas) {}
 
-    // Sobrescribe el método mostrarInfo para incluir las puertas
+    // Sobrescribe el metodo mostrarInfo para incluir las puertas
     void mostrarInfo() override {
-        cout << "Vehículo: " << marca << " modelo " << modelo << ", precio: Q" << precio << ", número de puertas: " << numPuertas << endl;
+        cout << "Vehiculo: " << marca << " modelo " << modelo << ", precio: Q" << precio << ", numero de puertas: " << numPuertas << endl;
     }
 };
 
@@ -45,7 +45,7 @@ public:
     // Constructor de Motocicleta, inicializa el cilindraje
     Motocicleta(string m, string mod, double p, int cc) : Vehiculo(m, mod, p), cilindraje(cc) {}
 
-    // Sobrescribe el método mostrarInfo para incluir el cilindraje
+    // Sobrescribe el metodo mostrarInfo para incluir el cilindraje
     void mostrarInfo() override {
         cout << "Motocicleta: " << marca << " modelo " << modelo << ", precio: Q" << precio << ", cilindraje: " << cilindraje << "cc" << endl;
     }
@@ -58,13 +58,13 @@ public:
     // Constructor de Camioneta, inicializa la capacidad de carga
     Camioneta(string m, string mod, double p, double carga) : Vehiculo(m, mod, p), capacidadCarga(carga) {}
 
-    // Sobrescribe el método mostrarInfo para incluir la capacidad de carga
+    // Sobrescribe el metodo mostrarInfo para incluir la capacidad de carga
     void mostrarInfo() override {
         cout << "Camioneta: " << marca << " modelo " << modelo << ", precio: Q" << precio << ", capacidad de carga: " << capacidadCarga << " toneladas" << endl;
     }
 };
 
-// Clase Cliente que representa a una persona que compra vehículos
+// Clase Cliente que representa a una persona que compra vehiculos
 class Cliente {
     string nombre;
     int edad;
@@ -72,30 +72,30 @@ public:
     // Constructor que inicializa el nombre y edad del cliente
     Cliente(string n, int e) : nombre(n), edad(e) {}
 
-    // Método que simula la compra de un vehículo
+    // Metodo que simula la compra de un vehiculo
     void comprarVehiculo(Vehiculo& v) {
-        cout << nombre << " compró un " << v.getMarca() << " " << v.getModelo() << " en Q" << v.getprecio() << "!" << endl;
+        cout << nombre << " compro un " << v.getMarca() << " " << v.getModelo() << " en Q" << v.getprecio() << "!" << endl;
     }
 
-    // Método para obtener el nombre del cliente
+    // Metodo para obtener el nombre del cliente
     string getnombre() { return nombre; }
 };
 
-// Clase Vendedor que representa a una persona que vende vehículos
+// Clase Vendedor que representa a una persona que vende vehiculos
 class Vendedor {
     string nombre;
 public:
     // Constructor que inicializa el nombre del vendedor
     Vendedor(string n) : nombre(n) {}
 
-    // Método que simula la venta de un vehículo a un cliente
+    // Metodo que simula la venta de un vehiculo a un cliente
     void venderVehiculo(Vehiculo& v, Cliente& c) {
-        cout << "Vendedor " << nombre << " vendió un " << v.getMarca() << " " << v.getModelo() << " a " << c.getnombre() << "!" << endl;
+        cout << "Vendedor " << nombre << " vendio un " << v.getMarca() << " " << v.getModelo() << " a " << c.getnombre() << "!" << endl;
     }
 };
 
 int main() {
-    // Creación de varios vehículos
+    // Creacion de varios vehiculos
     Automovil auto1("Lamborghini", "Aventador", 800000, 2);
     Automovil auto2("Ferrari", "Spider", 500000, 2);
     Automovil auto3("Ford", "Mustang GT40", 300000, 2);
@@ -106,18 +106,18 @@ int main() {
     Camioneta camioneta2("Chevrolet", "Tracker", 150000, 2);
     Camioneta camioneta3("Hyundai", "Tucson", 180000, 1.5);
 
-    // Creación de clientes
+    // Creacion de clientes
     Cliente cliente1("Fren", 20);
     Cliente cliente2("Fredy", 25);
     Cliente cliente3("Daniela", 20);
 
-    // Creación de vendedores
+    // Creacion de vendedores
     Vendedor vendedor1("Gabriela");
     Vendedor vendedor2("Antonio");
     Vendedor vendedor3("Brayan");
 
-    // Mostrar el inventario de vehículos
-    cout << "--- Inventario de Vehículos ---" << endl;
+    // Mostrar el inventario de vehiculos
+    cout << "--- Inventario de Vehiculos ---" << endl;
     auto1.mostrarInfo();
     auto2.mostrarInfo();
     auto3.mostrarInfo();
@@ -128,8 +128,8 @@ int main() {
     camioneta2.mostrarInfo();
     camioneta3.mostrarInfo();
 
-    // Simulación de ventas
-    cout << "--- Ventas de Vehículos ---" << endl;
+    // Simulacion de ventas
+    cout << "--- Ventas de Vehiculos ---" << endl;
     cliente1.comprarVehiculo(auto1);
     vendedor1.venderVehiculo(auto1, cliente1);
 
